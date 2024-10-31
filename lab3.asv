@@ -1,0 +1,46 @@
+clear all 
+clc
+
+data = load("Data_microarray.mat");
+x = load("X.mat");
+x = x.x;
+
+
+% x1 = randn(2,100);
+% 
+% x2 = randn(2,100)+8;
+% 
+% x3 = randn(2,100);
+% x3(1,:) = x3(1,:)+5;
+% 
+% x = [x1,x2,x3];
+% 
+% save('X.mat','x')
+
+D = [ones(1,100),ones(1,100)+1,ones(1,100)+2];
+
+% newson
+% selforgmap
+
+ net = selforgmap([3,1]);
+ 
+ net = train(net,x);
+
+% || net = train(net,x);
+ 
+ d = dist(x',net.iw{1}');
+ [odle, indeks] = min(d,[],2);
+ %error = sum(K ~= A') / (300) * 100;
+
+ jakosc = sum(indeks ~= D')/(300) * 100; % accuracy, czy coś
+
+% hextop
+% gridtop
+% randtop
+figure
+ hold on
+ plot(x(1,1:100),x(2,:),'*');
+ plotsom(net.IW{1,1}, net.layers{1}.distances);
+% dist 
+% mondist
+% hexdist
