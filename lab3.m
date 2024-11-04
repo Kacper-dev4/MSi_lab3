@@ -29,6 +29,10 @@ D = [ones(1,100),ones(1,100)+1,ones(1,100)+2];
 
 % || net = train(net,x);
  
+kolNet1 = net.iw{1}(:,1);
+net.iw{1}(:,1) = net.iw{1}(:,2);
+net.iw{1}(:,2) = kolNet1;
+
  d = dist(x',net.iw{1}');
  [odle, indeks] = min(d,[],2);
  %error = sum(K ~= A') / (300) * 100;
