@@ -19,7 +19,7 @@ data = data.Data;
 % save('X.mat','x')
 
 D = [ones(1,100),ones(1,100)+1,ones(1,100)+2];
-
+%D = [ones(1,100),ones(1,100)+1,ones(1,100)+2, ones(1,100)+3,ones(1,100)+4];
 % newson
 % selforgmap
 
@@ -63,9 +63,10 @@ error = ones(1,ile);
 % randtop
 figure
  hold on
- plot(x(1,1:100),x(2,1:100),'*','Color','r');
- plot(x(1,101:200),x(2,101:200),'*','Color','g');
- plot(x(1,201:300),x(2,201:300),'*','Color','b');
+ % plot(x(1,1:100),x(2,1:100),'*','Color','r');
+ % plot(x(1,101:200),x(2,101:200),'*','Color','g');
+ % plot(x(1,201:300),x(2,201:300),'*','Color','b');
+ gscatter(x(1,:),x(2,:), najlepszyIndeks')
  plotsom(net.IW{1,1}, net.layers{1}.distances);
  hold off
 
